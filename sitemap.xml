@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://darehbaghipsychiatry.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://darehbaghipsychiatry.com/images/home-desktop.png</image:loc>
+      <image:title>Darehbaghi Psychiatry &amp; Wellness</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://darehbaghipsychiatry.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://darehbaghipsychiatry.com/images/about-desktop.png</image:loc>
+      <image:title>About Dr. Siamak Darehbaghi</image:title>
+    </image:image>
+  </url>
+</urlset>
