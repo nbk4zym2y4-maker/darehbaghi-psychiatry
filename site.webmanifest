@@ -1,0 +1,16 @@
+{
+  "name": "Darehbaghi Psychiatry & Wellness",
+  "short_name": "Darehbaghi Psychiatry",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f0e5",
+  "theme_color": "#0d3b1d",
+  "description": "Adult psychiatric care in New York.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
