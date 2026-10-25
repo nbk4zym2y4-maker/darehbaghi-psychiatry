@@ -1,259 +1,363 @@
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f0e5;color:#14391f;font-family:Arial,Helvetica,sans-serif}a:focus-visible,summary:focus-visible{outline:3px solid #bf9733;outline-offset:3px}.artwork{width:min(100%,1500px);margin:0 auto;position:relative;aspect-ratio:3/2}.artwork picture,.artwork img{display:block;width:100%;height:100%}.artwork img{object-fit:contain}.hotspot{position:absolute;z-index:2;display:block;border-radius:8px}.home-art .nav-home{left:77.3%;top:7%;width:6%;height:6%}.home-art .nav-about{left:84.4%;top:7%;width:10%;height:6%}.home-art .artwork-schedule{left:34.4%;top:61.7%;width:31.4%;height:10.5%}.home-art .contact-email{left:16.6%;top:77.4%;width:23.3%;height:6%}.home-art .contact-phone{left:42.2%;top:77.4%;width:13%;height:6%}.about-art .nav-home{left:56.5%;top:5.2%;width:6.7%;height:6%}.about-art .nav-about{left:63.5%;top:5.2%;width:8%;height:6%}.about-art .artwork-schedule{left:73%;top:3.6%;width:20.5%;height:8%}.about-art .about-logo{left:10.5%;top:3.6%;width:27%;height:10%}.about-art .contact-email{left:18%;top:86%;width:20%;height:6%}.about-art .contact-phone{left:42%;top:86%;width:13%;height:6%}.booking{max-width:1100px;margin:0 auto;padding:58px 28px 75px;scroll-margin-top:15px}.section-eyebrow{text-align:center;letter-spacing:.19em;font-size:12px;color:#947426;font-weight:bold}.booking h2{text-align:center;font-family:Georgia,serif;font-size:clamp(30px,4vw,48px);font-weight:normal;margin:12px 0}.intro{text-align:center;max-width:680px;margin:0 auto 28px;line-height:1.6;color:#526152}.booking-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.provider-card{border:1px solid #ded8c9;background:#fffaf1;padding:28px;border-radius:20px;box-shadow:0 8px 25px #183e1d0d;display:flex;flex-direction:column;align-items:stretch}.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.provider-name{font-size:13px;letter-spacing:.16em;color:#ae8525;font-weight:bold}.tag{font-size:11px;background:#e8eddf;padding:6px 9px;border-radius:18px;color:#385b3e}.provider-card h3{font-family:Georgia,serif;font-size:29px;font-weight:normal;margin:15px 0 9px}.provider-card>p{line-height:1.58;color:#4f5e51;font-size:15px;margin:0 0 22px;flex:1}.primary-cta{background:#153d20;color:#fff;text-decoration:none;padding:17px 20px;border-radius:12px;display:flex;justify-content:space-between;gap:10px;font-weight:600;min-height:54px;align-items:center}.primary-cta:hover{background:#24542d}.insurances{margin-top:18px;border-top:1px solid #dbd7ca;padding-top:16px}.insurances summary{cursor:pointer;font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:12px;list-style:none}.insurances summary::-webkit-details-marker{display:none}.insurances[open] summary span{transform:rotate(180deg)}.plan-note{font-size:12px!important;line-height:1.6!important;color:#647064!important;margin:14px 0 0!important}.plan-list{columns:2;column-gap:18px;padding-left:18px;font-size:13px;line-height:1.6;margin-bottom:0}.plan-list li{break-inside:avoid;margin-bottom:6px}.disclaimer{text-align:center;font-size:12px;line-height:1.5;color:#647064;margin:26px auto 0;max-width:740px}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}/* Testing overlay: add ?debug=1 to URL and run debug snippet from README instead. */@media(max-width:768px){.artwork{aspect-ratio:auto}.home-art{aspect-ratio:850/1795}.about-art{aspect-ratio:850/1838}.home-art .nav-home{left:35.5%;top:5.6%;width:12%;height:4%}.home-art .nav-about{left:51%;top:5.6%;width:18%;height:4%}.home-art .artwork-schedule{left:17%;top:46%;width:66%;height:8%}.home-art .contact-email{left:20%;top:57.6%;width:62%;height:5%}.home-art .contact-phone{left:20%;top:64.6%;width:44%;height:5%}.about-art .nav-home{left:35%;top:4.4%;width:13%;height:4%}.about-art .nav-about{left:51%;top:4.4%;width:19%;height:4%}.about-art .artwork-schedule,.about-art .contact-email,.about-art .contact-phone,.about-art .about-logo{display:none}.booking{padding:38px 17px 54px}.booking-grid{grid-template-columns:1fr}.provider-card{padding:23px}.plan-list{columns:1}.booking h2{font-size:35px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Scheduling choices are visible below the artwork on every device. */
+.booking-grid{grid-template-columns:minmax(0,1fr);max-width:820px;margin:0 auto}
+.provider-card{padding:28px 34px}
+@media(max-width:768px){.provider-card{padding:23px}}
+
+.about-mobile-booking{display:none}
+@media(max-width:768px){.about-mobile-booking{display:block;text-align:center;padding:12px 18px 22px}.about-mobile-booking a{display:block;background:#153d20;color:white;text-decoration:none;padding:16px;border-radius:12px;font-weight:600}}
+
+/* Parallel insurance scheduling layout, desktop and mobile */
+.booking-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:1100px;margin:0 auto;align-items:start;gap:22px}
+.provider-card {padding:26px;min-width:0}
+.provider-card>p {flex:0 0 auto;min-height:118px;margin-bottom:16px}
+.provider-card .primary-cta {margin-top:auto}
+.plan-list {columns:1}
+@media(max-width:768px) {
+  .booking-grid {grid-template-columns:minmax(0,1fr)}
+  .provider-card>p {min-height:0}
+}
+/* Replacement for the original raster Headway-only button.
+   Flat green HTML overlay keeps the original image completely unchanged. */
+.home-art .artwork-schedule {
+  z-index:5;
+  background:#153d20;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(13px,1.85vw,25px);
+  font-weight:600;
+  letter-spacing:.06em;
+  border-radius:15px;
+  text-decoration:none;
+  box-shadow:0 8px 17px rgba(22,40,20,.15);
+}
+.home-art .artwork-schedule:hover {background:#24542d}
+@media(max-width:768px) {
+  .home-art .artwork-schedule {
+    border-radius:16px;
+    font-size:clamp(13px,3.7vw,28px);
+    text-align:center;
+    padding:8px;
+  }
 }
 
-:root {
-  --page-bg: #f6f0e5;
+/* Harmonized lettering: same refined serif as the site's section headings. */
+.home-art .artwork-schedule {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: .055em;
+  font-size: clamp(14px, 2.15vw, 27px);
+}
+.about-mobile-booking a {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(16px, 4.3vw, 21px);
+  letter-spacing: .01em;
+  line-height: 1.5;
+}
+@media (max-width:768px) {
+  .home-art .artwork-schedule {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight:400;
+    font-size:clamp(15px,4.5vw,23px);
+    letter-spacing:.02em;
+  }
 }
 
-html,
-body {
-  margin: 0;
-  min-height: 100%;
-  background: var(--page-bg);
+/* FINAL POLISH — centered, one-line Home appointment button on desktop */
+.home-art .artwork-schedule {
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0 8px;
+  text-align:center;
+  white-space:nowrap;
+  line-height:1;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+  letter-spacing:0;
+  font-size:clamp(12px,1.65vw,23px);
+  text-transform:none;
+}
+/* Keep the updated historical bio in actual accessible HTML.
+   This overlays only the biography region; the portrait is untouched. */
+.about-art .updated-bio {
+  position:absolute;
+  z-index:3;
+  left:14.7%;
+  top:59.4%;
+  width:34.5%;
+  height:22%;
+  padding:9px 8px;
+  background:#f6f2eb;
+  color:#1e2520;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+.about-art .updated-bio p {
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(9px,1.03vw,15px);
+  line-height:1.75;
+  font-weight:400;
+  text-align:left;
+}
+.about-mobile-booking a {
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(16px,4vw,20px);
+  line-height:1.35;
+  font-weight:400;
+  letter-spacing:0;
+}
+@media (max-width:768px) {
+ .home-art .artwork-schedule {
+    white-space:nowrap;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(13px,4.1vw,21px);
+    letter-spacing:0;
+    padding:0 5px;
+ }
+ .about-art .updated-bio {
+    left:21%;
+    top:69.1%;
+    width:58%;
+    height:18.1%;
+    background:#fbf4eb;
+    padding:6px 9px;
+    align-items:flex-start;
+ }
+ .about-art .updated-bio p {
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(9px,2.28vw,20px);
+    line-height:1.52;
+    text-align:center;
+ }
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
+/* Final unified appointment design: matching compact calendar icon and one-line label. */
+.home-art .artwork-schedule {
+  left:34.4%; top:61.7%; width:31.4%; height:10.5%;
+  display:flex; justify-content:center; align-items:center;
+  gap:clamp(8px,1vw,15px);
+  padding:0 clamp(10px,1.5vw,20px);
+  background:#153d20; color:#ffffff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:500; font-size:clamp(12px,1.62vw,22px);
+  letter-spacing:.01em; line-height:1.15;
+  text-align:center; text-transform:none;
+  white-space:nowrap; border-radius:14px;
+}
+.home-art .artwork-schedule .calendar-mark {
+  display:block; flex:0 0 auto;
+  width:clamp(21px,3.3vw,43px); height:auto;
+}
+.home-art .artwork-schedule .booking-label { display:block; white-space:nowrap; }
+
+/* One single typographic treatment across the three complete About paragraphs.
+   The unchanged original photograph is the base layer; the full bio is rendered
+   as accessible HTML on a cream-colored surface in the text region only. */
+.about-art .updated-bio {
+  left:14.35%; top:44.4%; width:34.75%; height:35.9%;
+  padding:7px 8px 4px; box-sizing:border-box;
+  display:flex; flex-direction:column; justify-content:center;
+  align-items:stretch; gap:clamp(8px,1.25vw,18px);
+  background:#f6f2eb; color:#20231f; z-index:3;
+}
+.about-art .updated-bio p {
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(9px,1.14vw,17px)!important;
+  line-height:1.43!important; font-weight:400!important;
+  letter-spacing:0!important; text-align:left!important;
+  margin:0!important;
+}
+@media(max-width:768px) {
+  .home-art .artwork-schedule {
+    left:17%; top:46%; width:66%; height:8%;
+    gap:clamp(8px,2vw,14px);
+    font-family:Arial,Helvetica,sans-serif;
+    font-weight:500; font-size:clamp(13px,3.5vw,23px);
+    letter-spacing:0; padding:0 10px;
+  }
+  .home-art .artwork-schedule .calendar-mark {
+    width:clamp(24px,7vw,44px);
+  }
+  .about-art .updated-bio {
+    left:20.8%; top:52.0%; width:58.6%; height:35.7%;
+    padding:4px 7px 6px;
+    display:flex; flex-direction:column; justify-content:center;
+    gap:clamp(12px,3.6vw,24px);
+    background:#fbf4eb;
+  }
+  .about-art .updated-bio p {
+    font-family:Georgia,"Times New Roman",serif!important;
+    font-size:clamp(10px,2.46vw,20px)!important;
+    line-height:1.36!important;
+    text-align:center!important; font-weight:400!important;
+  }
 }
 
-.page-card {
-  position: relative;
-  width: 100vw;
-  max-width: calc(100vh * var(--ratio));
-  aspect-ratio: var(--aspect);
-  overflow: hidden;
-  background: var(--page-bg);
+
+/* CHOSEN OPTION 5 — elegant gold accent, pixel-anchored to original artwork. */
+.home-art .artwork-schedule {
+  left:34.4%; top:61.7%; width:31.4%; height:10.5%;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:row; gap:clamp(5px,.8vw,12px);
+  box-sizing:border-box; padding:0 clamp(5px,1vw,14px);
+  overflow:hidden;
+  background:linear-gradient(105deg,#234a2b 0%,#12381d 100%);
+  color:#fff9e9;
+  border:2px solid #c6a052;
+  border-radius:999px;
+  box-shadow:0 7px 17px rgba(31,46,25,.22), inset 0 1px 1px rgba(255,255,255,.13);
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(12px,1.5vw,21px);
+  font-weight:400; line-height:1;
+  letter-spacing:0; text-transform:none;
+  white-space:nowrap; text-align:center;
+  text-decoration:none;
+}
+.home-art .artwork-schedule .calendar-mark {
+  display:block; flex:0 0 auto;
+  width:clamp(19px,2.8vw,35px);
+  height:clamp(19px,2.8vw,35px);
+  color:#e2ba6a;
+}
+.home-art .artwork-schedule .booking-label {display:block;min-width:0;white-space:nowrap;}
+.home-art .artwork-schedule:hover {background:linear-gradient(105deg,#2e5935,#194322);}
+@media(max-width:768px) {
+ .home-art .artwork-schedule {
+    left:17%;top:46%;width:66%;height:8%;
+    gap:clamp(6px,1.9vw,12px);padding:0 7px;
+    border:2px solid #c6a052; border-radius:999px;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(12px,3.4vw,20px);
+    letter-spacing:0;line-height:1;
+ }
+ .home-art .artwork-schedule .calendar-mark {
+    width:clamp(20px,6vw,34px);
+    height:clamp(20px,6vw,34px);
+ }
 }
 
-body.home {
-  --aspect: 1500 / 1000;
-  --ratio: 1.50000000;
-}
 
-body.about {
-  --aspect: 1500 / 1000;
-  --ratio: 1.50000000;
-}
-
-.background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.hotspot {
-  position: absolute;
-  display: block;
-  z-index: 10;
-  cursor: pointer;
-  border-radius: 14px;
-}
-
-.hotspot:focus-visible {
-  outline: 3px solid #b99a2d;
-  outline-offset: 3px;
-}
-
-/*
-  TESTING MODE:
-  Uncomment this block to see clickable areas.
-*/
-/*
-.hotspot {
-  border: 2px solid red;
-  background: rgba(255, 0, 0, 0.10);
-}
-*/
-
-/* HOME PAGE - DESKTOP */
-body.home .nav-home {
-  left: 76.5%;
-  top: 8.0%;
-  width: 5.8%;
-  height: 4.0%;
-}
-
-body.home .nav-about {
-  left: 83.6%;
-  top: 8.0%;
-  width: 9.0%;
-  height: 4.0%;
-}
-
-body.home .schedule-link {
-  left: 34.0%;
-  top: 62.0%;
-  width: 32.0%;
-  height: 9.5%;
-}
-
-body.home .email-link {
-  left: 16.0%;
-  top: 78.0%;
-  width: 24.0%;
-  height: 5.2%;
-}
-
-body.home .phone-link {
-  left: 41.8%;
-  top: 78.0%;
-  width: 13.0%;
-  height: 5.2%;
-}
-
-/* ABOUT PAGE - DESKTOP */
-body.about .nav-home {
-  left: 56.0%;
-  top: 6.7%;
-  width: 5.2%;
-  height: 3.6%;
-}
-
-body.about .nav-about {
-  left: 62.7%;
-  top: 6.7%;
-  width: 8.5%;
-  height: 3.6%;
-}
-
-body.about .about-logo-home {
-  left: 10.3%;
-  top: 3.7%;
-  width: 24.5%;
-  height: 9.2%;
-}
-
-body.about .schedule-link {
-  left: 71.7%;
-  top: 4.6%;
-  width: 19.8%;
-  height: 6.8%;
-}
-
-body.about .email-link {
-  left: 17.8%;
-  top: 87.0%;
-  width: 20.5%;
-  height: 4.8%;
-}
-
-body.about .phone-link {
-  left: 41.3%;
-  top: 86.9%;
-  width: 12.5%;
-  height: 4.8%;
-}
-
-/* Search-readable and screen-reader accessible text that mirrors the image content */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+/* FINAL: Screenshot-matched simple rectangular green appointment button.
+   The solid rectangle fully covers the older button printed in the artwork,
+   including its old rounded corners. The source images remain untouched. */
+.home-art .artwork-schedule {
+  left: 33.75%; top: 61.15%; width: 32.5%; height: 11.1%;
+  display: flex; flex-direction: row; align-items: center; justify-content: center;
+  box-sizing: border-box; gap: clamp(8px, .9vw, 13px);
+  padding: 0 clamp(8px,1.1vw,16px);
+  background: #123619 !important;
+  background-image: none !important;
+  color: #fff !important;
+  border: 1px solid #244927 !important;
+  border-radius: 13px !important;
+  box-shadow: 0 2px 3px rgba(13,32,16,.20) !important;
+  font: 500 clamp(12px,1.38vw,20px)/1 Arial, Helvetica, sans-serif !important;
+  letter-spacing: 0 !important;
+  text-decoration: none;
   white-space: nowrap;
-  border: 0;
+  text-align: center;
+  text-transform: uppercase !important;
+  overflow: hidden;
+}
+.home-art .artwork-schedule:hover { background: #1f4725 !important; }
+.home-art .artwork-schedule .calendar-mark {
+  color: #fff !important;
+  stroke: currentColor;
+  width: clamp(20px,2.5vw,33px);
+  height: clamp(20px,2.5vw,33px);
+  flex-shrink: 0;
+}
+.home-art .artwork-schedule .booking-label {
+  white-space: nowrap !important;
+  overflow: visible;
+  font: inherit;
+}
+@media(max-width:768px) {
+  .home-art .artwork-schedule {
+    left: 16.8%; top: 45.9%; width: 66.4%; height: 8.3%;
+    border-radius: 12px !important;
+    font-size: clamp(11px,3.4vw,20px) !important;
+    gap: clamp(6px,1.8vw,11px);
+    padding: 0 8px;
+  }
+  .home-art .artwork-schedule .calendar-mark {
+    width: clamp(20px,5.6vw,32px);
+    height: clamp(20px,5.6vw,32px);
+  }
 }
 
-@media (max-width: 768px) {
-  body {
-    display: block;
-    min-height: 100vh;
-    overflow-y: auto;
-  }
+/* Final understated button on cleaned artwork: no old baked-in button beneath. */
+.home-art .artwork-schedule {
+left:38%!important;top:62.0%!important;width:24%!important;height:7.0%!important;
+border-radius:13px!important;border:1px solid #39573d!important;
+background:#113b1b!important;box-shadow:0 5px 10px rgba(12,32,15,.12)!important;
+display:flex!important;gap:11px!important;justify-content:center!important;align-items:center!important;
+font:500 clamp(12px,1.26vw,17px)/1.1 Arial,Helvetica,sans-serif!important;
+letter-spacing:0!important;text-transform:uppercase!important;color:#fff!important;
+white-space:nowrap!important;padding:0 12px!important;
+}
+.home-art .artwork-schedule .calendar-mark {
+width:clamp(20px,2.3vw,29px)!important;height:auto!important;color:#fff!important;flex:none!important;
+}
+.home-art .artwork-schedule .booking-label {font:inherit!important;white-space:nowrap!important;}
+@media(max-width:768px){
+.home-art .artwork-schedule {
+ left:22%!important;top:47.0%!important;width:56%!important;height:5.5%!important;
+ border-radius:11px!important;font-size:clamp(12px,3.25vw,20px)!important;gap:8px!important;
+}
+.home-art .artwork-schedule .calendar-mark {width:clamp(22px,6vw,33px)!important;}
+}
 
-  .page-card {
-    width: 100vw;
-    max-width: none;
-    height: auto;
-    overflow: visible;
-    box-shadow: none;
+/* Final, matched typography: same Georgia serif used by the Alma/Headway card headings. */
+.home-art .artwork-schedule {
+  font-family:Georgia, "Times New Roman",serif !important;
+  text-transform:none !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  font-size:clamp(12px,1.22vw,17px) !important;
+  line-height:1.15 !important;
+  background:#153d20 !important;
+  box-shadow:0 4px 10px rgba(19,43,24,.12) !important;
+  border:1px solid #406044 !important;
+}
+.home-art .artwork-schedule .booking-label {font:inherit !important;text-transform:none !important;}
+@media(max-width:768px){
+  .home-art .artwork-schedule {
+    left:22% !important; top:46.8% !important; width:56% !important; height:5.5% !important;
+    font-size:clamp(13px,3.45vw,20px) !important;
   }
+}
 
-  body.home {
-    --aspect: 850 / 1795;
-    --ratio: 0.47353760;
+/* Mobile About Me: larger consistent text without altering the portrait or graphic. */
+@media (max-width:768px) {
+  .about-art .updated-bio {
+    top:51.2% !important;
+    height:37.0% !important;
+    gap:clamp(8px,2.5vw,18px) !important;
+    padding:3px 8px !important;
   }
+  .about-art .updated-bio p {
+    font-family:Georgia,"Times New Roman",serif !important;
+    font-size:clamp(11.5px,2.95vw,17px) !important;
+    line-height:1.28 !important;
+    font-weight:400 !important;
+  }
+}
 
-  body.about {
-    --aspect: 850 / 1838;
-    --ratio: 0.46245919;
-  }
-
-  .background-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* HOME PAGE - PHONE */
-  body.home .nav-home {
-    left: 36.8%;
-    top: 6.2%;
-    width: 10.0%;
-    height: 2.8%;
-  }
-
-  body.home .nav-about {
-    left: 52.0%;
-    top: 6.2%;
-    width: 16.0%;
-    height: 2.8%;
-  }
-
-  body.home .schedule-link {
-    left: 18.0%;
-    top: 47.1%;
-    width: 64.0%;
-    height: 7.2%;
-  }
-
-  body.home .email-link {
-    left: 21.0%;
-    top: 58.6%;
-    width: 61.0%;
-    height: 4.7%;
-  }
-
-  body.home .phone-link {
-    left: 21.0%;
-    top: 66.0%;
-    width: 40.0%;
-    height: 4.5%;
-  }
-
-  /* ABOUT PAGE - PHONE */
-  body.about .nav-home {
-    left: 36.8%;
-    top: 5.7%;
-    width: 10.0%;
-    height: 2.5%;
-  }
-
-  body.about .nav-about {
-    left: 52.0%;
-    top: 5.7%;
-    width: 16.0%;
-    height: 2.5%;
-  }
-
-  body.about .about-logo-home,
-  body.about .schedule-link,
-  body.about .email-link,
-  body.about .phone-link {
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 0;
-  }
+/* Small visible practice-focus statement: useful patient information, not hidden keyword text. */
+.practice-focus {
+  max-width: 760px;
+  margin: .6rem auto 1.25rem;
+  text-align: center;
+  line-height: 1.55;
+  font-size: clamp(.88rem, 1.2vw, 1rem);
+  color: #344a3c;
 }
